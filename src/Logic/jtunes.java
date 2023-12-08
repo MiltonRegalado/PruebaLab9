@@ -9,7 +9,7 @@ package Logic;
  * @author suyen
  */
 public class jtunes {
- private Song song[];
+  private Song song[];
   
   public Song SearchSong(int codigo){
       for(Song buscar:song){
@@ -28,5 +28,21 @@ public class jtunes {
       }
       return false;
   }
- 
+  public String rateSong(int estrellas, int codigo){
+      if(SearchSong(codigo) != null){
+          for(int pos = 0; pos < song.length; pos++){
+              if(SearchSong(codigo).equals(codigo)){
+                  song[pos].addStars(estrellas);
+                  return song[pos].print();
+              }
+          }
+      }
+      return "Esta canción no existe";
+  }
+  public String printSong(){
+      for(int pos = 0; pos < song.length; pos++){
+          return song[pos].print();
+      }
+      return null;
+  }
 }
